@@ -20,7 +20,7 @@ const quickStartActions = ['表单配置', '托收费用…', '发票管理', '�
             </MainCard>
             <MainCard title="系统消息">
                 <template #content>
-
+                    <!-- aaaa -->
                 </template>
             </MainCard>
         </div>
