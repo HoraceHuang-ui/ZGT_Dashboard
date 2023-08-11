@@ -1,6 +1,93 @@
 <script setup>
+import { onMounted } from 'vue'
+import * as echarts from 'echarts'
 import MainCard from '@/components/MainCard.vue'
 const quickStartActions = ['表单配置', '托收费用…', '发票管理', '箱费用明…', '船舶使费…', '单箱信息…']
+
+onMounted(() => {
+    let myEchart = echarts.init(document.getElementById("chartWorkTrend"));
+    myEchart.setOption({
+        dataZoom: [
+            {
+                id: 'dataZoomX',
+                type: 'slider',
+                xAxisIndex: [0],
+                filterMode: 'filter',
+                show: true,
+                start: 20,
+                end: 80
+            }
+        ],
+        legend: {
+            data: ['业务1', '业务2', '业务3'],
+            x: 'center',
+            bottom: '50px',
+            textStyle: {
+                color: '#666'
+            },
+            icon: 'circle'
+        },
+        grid: {
+            bottom: '100px',
+            containLabel: true
+        },
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: '0px 10px 20px 0px rgba(167, 200, 255, 0.5),inset 0px -2px 12px 0px rgba(229, 237, 250, 0.5),inset 0px 2px 6px 0px rgba(229, 237, 250, 0.9)',
+            backdropFilter: blur(),
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            axisLine: {
+                show: false
+            },
+            data: ['04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00']
+        },
+        yAxis: {
+            type: 'value',
+            axisLine: {
+                show: false
+            },
+            axisLabel: {
+                show: true,
+                interval: 'auto',
+                formatter: function (value) {
+                    return value * 100 + '%';
+                }
+            }
+        },
+        series: [{
+            name: '业务1',
+            data: [0.8, 0.9, 0.9, 0.5, 0.6, 0.5, 0.4, 0.3, 0.2, 0.3, 0.4, 0.6],
+            type: 'line',
+            smooth: true,
+            symbol: 'none'
+        },
+        {
+            name: '业务2',
+            data: [0.7, 0.8, 0.8, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0.2, 0.3, 0.5],
+            type: 'line',
+            smooth: true,
+            symbol: 'none'
+        },
+        {
+            name: '业务3',
+            data: [0.9, 1.0, 1.0, 0.6, 0.7, 0.6, 0.5, 0.4, 0.3, 0.4, 0.5, 0.7],
+            type: 'line',
+            smooth: true,
+            symbol: 'none'
+        },
+        ],
+        color: ['#0379FF', '#FEA501', '#13E1E1']
+    })
+})
 </script>
 
 <template>
@@ -24,9 +111,24 @@ const quickStartActions = ['表单配置', '托收费用…', '发票管理', '�
                 </template>
             </MainCard>
         </div>
-        <MainCard title="aaa" style="margin-top: 0.5rem;">
+        <MainCard title="数据概览" style="margin-top: 0.5rem;">
             <template #content>
-                aaa
+                <div class="flex flex-row justify-between">
+                    <div class="rounded p2 mx" style="background: linear-gradient(180deg, #F2F9FE -3%, #E6F4FE 100%);">
+                        a
+                    </div>
+                    <div class="rounded p2 mx" style="background: linear-gradient(180deg, #F5FEF2 -3%, #E6FEEE 100%);">
+                        b</div>
+                    <div class="rounded p2 mx" style="background: linear-gradient(180deg, #F2F9FE -3%, #E6F4FE 100%);">
+                        c</div>
+                    <div class="rounded p2 mx" style="background: linear-gradient(180deg, #F6F7FF -3%, #ECECFF 100%);">
+                        d</div>
+                </div>
+            </template>
+        </MainCard>
+        <MainCard title="作业趋势分析" style="margin-top: 0.5rem; height: 50vh; width: 100%;">
+            <template #noMarginContent>
+                <div id="chartWorkTrend" class="h-full w-full"></div>
             </template>
         </MainCard>
     </div>

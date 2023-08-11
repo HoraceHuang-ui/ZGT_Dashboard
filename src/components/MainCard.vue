@@ -7,6 +7,7 @@ const props = defineProps({
 <template>
     <div class="card relative">
         <div class="card-title absolute font-bold">{{ props.title }}</div>
+        <slot name="noMarginContent"></slot>
         <div style="margin-top: 2.5rem;">
             <slot name="content"></slot>
         </div>
