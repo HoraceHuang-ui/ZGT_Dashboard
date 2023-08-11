@@ -102,6 +102,9 @@ onMounted(() => {
             },
             axisLabel: {
                 show: false
+            },
+            axisTick: {
+                show: false
             }
         },
         yAxis: {
