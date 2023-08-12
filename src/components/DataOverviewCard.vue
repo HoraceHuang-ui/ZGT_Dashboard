@@ -4,6 +4,10 @@ import * as echarts from 'echarts'
 
 const props = defineProps({
     title: String,
+    comparisonStr: {
+        type: String,
+        default: '同比'
+    },
     dataArr: [],
     linePlot: {
         type: Boolean,
@@ -126,7 +130,7 @@ const findMax = () => {
                     <div>
                         <p style="font-size: x-large;">{{ props.dataArr[len - 1] }}</p>
                         <p style="font-size: x-small; margin-left: 2px;">
-                            <span> 较昨日 </span>
+                            <span> {{ props.comparisonStr }} </span>
                             <span class="font-bold" :class="{ 'text-red': props.dataArr[len - 1] > props.dataArr[len - 2] },
                                 { 'text-green': props.dataArr[len - 1] < props.dataArr[len - 2] }">{{
         ((props.dataArr[len - 1] -
