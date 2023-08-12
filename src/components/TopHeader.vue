@@ -1,13 +1,29 @@
 <script setup>
+import { SearchOutlined, TranslationOutlined, NotificationFilled } from '@vicons/antd'
 </script>
 
 <template>
     <div class="header justify-between flex flex-row sticky w-full bg-white ">
         <img src="@/assets/companylogo.png" />
-        <div class="flex flex-row p1 ">
-            <img class="header-icon h-full" src="@/assets/icons/search.png" />
-            <img class="header-icon h-full" src="@/assets/icons/translation.png" />
-            <img class="header-icon h-full" src="@/assets/icons/notification.png" />
+        <div class="flex flex-row p1 h-full">
+            <n-icon-wrapper class="header-icon" :size="24" :border-radius="9999" color="white" icon-color="black"
+                style=" border-style: solid; border-color: darkgray; border-width: 1px;">
+                <n-icon size="12">
+                    <search-outlined />
+                </n-icon>
+            </n-icon-wrapper>
+            <n-icon-wrapper class="header-icon" :size="24" :border-radius="9999" color="white" icon-color="black"
+                style=" border-style: solid; border-color: darkgray; border-width: 1px;">
+                <n-icon size="12">
+                    <translation-outlined />
+                </n-icon>
+            </n-icon-wrapper>
+            <n-icon-wrapper class="header-icon" :size="24" :border-radius="9999" color="white" icon-color="black"
+                style=" border-style: solid; border-color: darkgray; border-width: 1px;">
+                <n-icon size="12">
+                    <notification-filled />
+                </n-icon>
+            </n-icon-wrapper>
             <div class="header-avatar bg-blue text-white font-bold text-center">A</div>
         </div>
     </div>
@@ -24,8 +40,7 @@
 }
 
 .header-icon {
-    height: 2vh;
-    margin-top: 1.5vh;
+    margin-top: 1vh;
     margin-right: 1rem;
 }
 
