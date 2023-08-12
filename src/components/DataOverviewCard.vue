@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import * as echarts from 'echarts'
 
 const props = defineProps({
@@ -10,6 +10,9 @@ const props = defineProps({
         default: false
     }
 })
+
+const echartref = ref()
+
 const len = props.dataArr.length
 onMounted(() => {
     let lineOptions = {
@@ -28,8 +31,8 @@ onMounted(() => {
         },
         yAxis: {
             type: 'value',
-            min: findMin(props.dataArr) - 4000,
-            max: findMax(props.dataArr) + 4000,
+            min: findMin(props.dataArr) * 0.6,
+            max: findMax(props.dataArr) * 1.3,
             axisLine: {
                 show: false
             },
@@ -65,8 +68,8 @@ onMounted(() => {
         },
         yAxis: {
             type: 'value',
-            min: findMin(props.dataArr) - 4000,
-            max: findMax(props.dataArr) + 4000,
+            min: findMin(props.dataArr) * 0.6,
+            max: findMax(props.dataArr) * 1.3,
             axisLine: {
                 show: false
             },
@@ -90,16 +93,15 @@ onMounted(() => {
         }],
         color: ['#4fba60']
     }
-    let myChart = echarts.init(document.getElementById("chart"));
+    let myChart = echarts.init(echartref.value);
+    // let myChart = echarts.init(echartref)
     myChart.setOption(props.linePlot ? lineOptions : boxOptions)
 })
 
 const findMin = () => {
     var min = 999999
-    console.log(props.dataArr)
     props.dataArr.forEach(num => {
         if (num < min) {
-            console.log(num < min)
             min = num
         }
     })
@@ -116,7 +118,7 @@ const findMax = () => {
 }
 </script>
 <template>
-    <div class="rounded p2 mx" style="height: 13vh; background: linear-gradient(180deg, #F2F9FE -3%, #E6F4FE 100%);">
+    <div class="rounded p2 mx">
         <div class="w-full" style="font-size: small;">{{ props.title }}</div>
         <div class="w-full h-full relative">
             <div class="absolute" style="left: 0; bottom: 14px; line-height: 25px;">
@@ -141,7 +143,7 @@ const findMax = () => {
                 </div>
             </div>
             <div class="absolute" style="right: 0; top: 8px;">
-                <div id="chart" style="height: 50px; width: 100px;">
+                <div ref="echartref" style="height: 50px; width: 100px;">
                 </div>
             </div>
         </div>

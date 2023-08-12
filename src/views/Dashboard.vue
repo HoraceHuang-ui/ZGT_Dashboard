@@ -4,8 +4,10 @@ import DataOverviewCard from '@/components/DataOverviewCard.vue'
 import * as echarts from 'echarts'
 import MainCard from '@/components/MainCard.vue'
 const quickStartActions = ['表单配置', '托收费用…', '发票管理', '箱费用明…', '船舶使费…', '单箱信息…']
-const dailyCapacity = [9000, 7000, 9000, 11451, 11321, 12256]
-const dailyContainer = [900, 1000, 1145, 1000, 1250, 1135]
+const dailyCapacity = [9000, 7000, 9000, 8765, 9680, 11451, 11321, 12256]
+const dailyContainer = [900, 1000, 1145, 1012, 1098, 1299, 999, 1250, 1145]
+const annualCapacity = [300000, 400009, 299901, 451042, 432101, 398071, 489095, 514114]
+const annualContainer = [9000, 10112, 9876, 8654, 10230, 11234, 11451, 10119]
 
 onMounted(() => {
     let workTrendChart = echarts.init(document.getElementById("chartWorkTrend"));
@@ -120,14 +122,14 @@ onMounted(() => {
         <MainCard title="数据概览" style="margin-top: 0.5rem;">
             <template #content>
                 <div class="grid-cols-4">
-                    <DataOverviewCard title="今日吞吐量(吨)" :dataArr="dailyCapacity" linePlot />
-                    <div class="rounded p2 mx" style="background: linear-gradient(180deg, #F5FEF2 -3%, #E6FEEE 100%);">
-                        b
-                    </div>
-                    <div class="rounded p2 mx" style="background: linear-gradient(180deg, #F2F9FE -3%, #E6F4FE 100%);">
-                        c</div>
-                    <div class="rounded p2 mx" style="background: linear-gradient(180deg, #F6F7FF -3%, #ECECFF 100%);">
-                        d</div>
+                    <DataOverviewCard title="今日吞吐量(吨)" :dataArr="dailyCapacity" linePlot
+                        style="height: 13vh; background: linear-gradient(180deg, #F2F9FE -3%, #E6F4FE 100%);" />
+                    <DataOverviewCard title="今日集装箱(个)" :dataArr="dailyContainer"
+                        style="height: 13vh; background: linear-gradient(180deg, #F5FEF2 -3%, #E6FEEE 100%);" />
+                    <DataOverviewCard title="今年总吞吐量(吨)" :dataArr="annualCapacity" linePlot
+                        style="height: 13vh; background: linear-gradient(180deg, #F2F9FE -3%, #E6F4FE 100%);" />
+                    <DataOverviewCard title="今年总集装箱(个)" :dataArr="annualContainer"
+                        style="height: 13vh; background: linear-gradient(180deg, #F6F7FF -3%, #ECECFF 100%);" />
                 </div>
             </template>
         </MainCard>

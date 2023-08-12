@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div class="header justify-between flex flex-row sticky w-full">
+    <div class="header justify-between flex flex-row sticky w-full bg-white ">
         <img src="@/assets/companylogo.png" />
         <div class="flex flex-row p1 ">
             <img class="header-icon h-full" src="@/assets/icons/search.png" />
