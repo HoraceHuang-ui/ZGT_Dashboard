@@ -10,7 +10,7 @@ const dailyContainer = [900, 1000, 1145, 1012, 1098, 1299, 999, 1250, 1145]
 const annualCapacity = [300000, 400009, 299901, 451042, 432101, 398071, 489095, 514114]
 const annualContainer = [9000, 10112, 9876, 8654, 10230, 11234, 11451, 10119]
 const notifications = ref([{
-    title: '测试标题',
+    title: '测试标题测试标题测试标题测试标题测试标题',
     msg: '测试正文测试正文测试正文测试正文测试正文测试正文测试正文测试正文测试正文测试正文测试正文',
     timestamp: Date.now(),
     urgent: true
@@ -128,16 +128,18 @@ onMounted(() => {
             <MainCard title="系统消息">
                 <template #content>
                     <n-scrollbar v-if="notifications && notifications.length > 0"
-                        class="justify-center justify-items-center px" style="max-height: 10vh;" trigger="none">
-                        <div class="w-full" v-for="ntf in notifications" style="max-width: 90%;">
-                            <div class="flex flex-row justify-between">
-                                <div>
+                        class="justify-center justify-items-center px w-full" style="max-height: 10vh;" trigger="none">
+                        <div v-for="ntf in notifications" style="width: 86%;">
+                            <div class="flex flex-row justify-between w-full">
+                                <div class="w-full">
                                     <p>
-                                        <span class=" text-blue">{{ ntf.title }}</span>
+                                        <n-ellipsis class=" text-blue" style="max-width: 50%;">{{ ntf.title }}</n-ellipsis>
                                         <span class="text-gray" style="font-size: smaller; margin-left: 4px;">{{
                                             new Date(ntf.timestamp).toLocaleString() }}</span>
                                     </p>
-                                    <p>{{ ntf.msg }}</p>
+                                    <n-ellipsis class="w-full" style=" max-height: 1lh;">
+                                        <span>{{ ntf.msg }}</span>
+                                    </n-ellipsis>
                                 </div>
                                 <div style="min-width: 1px;">
                                     <n-tag v-if="ntf.urgent" round type="error">紧急</n-tag>
