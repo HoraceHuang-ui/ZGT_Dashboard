@@ -42,7 +42,7 @@ import { SearchOutlined, TranslationOutlined, AlertOutlined, SettingOutlined } f
     left: 0;
     z-index: 2001;
     box-shadow: 0 2px 4px 0 rgb(0, 0, 0, 10%);
-    height: 6vh;
+    height: 45px;
 }
 
 .header-icon {
