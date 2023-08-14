@@ -132,7 +132,7 @@ const findMax = () => {
                         <p style="font-size: x-small; margin-left: 2px;">
                             <span> {{ props.comparisonStr }} </span>
                             <span class="font-bold" :class="{ 'text-red': props.dataArr[len - 1] > props.dataArr[len - 2] },
-                                { 'text-green': props.dataArr[len - 1] < props.dataArr[len - 2] }">{{
+                                { ' text-emerald': props.dataArr[len - 1] < props.dataArr[len - 2] }">{{
         ((props.dataArr[len - 1] -
             props.dataArr[len - 2]) /
             props.dataArr[len - 2] * 100).toFixed(2) }}%</span>
