@@ -8,9 +8,7 @@ import AsideMenu from './components/AsideMenu.vue';
   <TopHeader></TopHeader>
   <n-layout has-sider>
     <n-layout-sider bordered width="15vw" collapse-mode="width" :collapsed-width="64" show-trigger>
-      <n-menu>
-          <AsideMenu/>
-      </n-menu>
+      <AsideMenu/>
     </n-layout-sider>
     <n-layout-content>
       <RouterView />
