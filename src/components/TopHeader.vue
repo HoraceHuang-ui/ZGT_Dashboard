@@ -1,5 +1,5 @@
 <script setup>
-import { SearchOutlined, TranslationOutlined, NotificationFilled } from '@vicons/antd'
+import { SearchOutlined, TranslationOutlined, AlertOutlined, SettingOutlined } from '@vicons/antd'
 </script>
 
 <template>
@@ -21,7 +21,13 @@ import { SearchOutlined, TranslationOutlined, NotificationFilled } from '@vicons
             <n-icon-wrapper class="header-icon" :size="24" :border-radius="9999" color="white" icon-color="black"
                 style=" border-style: solid; border-color: darkgray; border-width: 1px;">
                 <n-icon size="12">
-                    <notification-filled />
+                    <alert-outlined />
+                </n-icon>
+            </n-icon-wrapper>
+            <n-icon-wrapper class="header-icon" :size="24" :border-radius="9999" color="white" icon-color="black"
+                style=" border-style: solid; border-color: darkgray; border-width: 1px;">
+                <n-icon size="12">
+                    <setting-outlined />
                 </n-icon>
             </n-icon-wrapper>
             <div class="header-avatar bg-blue text-white font-bold text-center">A</div>

@@ -17,7 +17,7 @@ const notifications = ref([{
 }, {
     title: '测试标题2',
     msg: '测试正文2',
-    timestamp: Date.now(),
+    timestamp: Date.parse("1919/8/10 11:45:14"),
     urgent: false
 }])
 
@@ -46,7 +46,7 @@ onMounted(() => {
             icon: 'circle'
         },
         grid: {
-            bottom: '100px',
+            // bottom: '100px',
             containLabel: true
         },
         tooltip: {
@@ -81,9 +81,6 @@ onMounted(() => {
                 }
             }
         },
-        grid: {
-            bottom: '0px',
-        },
         series: [{
             name: '业务1',
             data: [0.8, 0.9, 0.9, 0.5, 0.6, 0.5, 0.4, 0.3, 0.2, 0.3, 0.4, 0.6],
@@ -113,7 +110,7 @@ onMounted(() => {
 
 <template>
     <!-- background-color: #f5f7f9-->
-    <div class="w-full p5" style="background-color: blue;">
+    <div class="w-full p5" style="background-color: #f5f7f9;">
         <div class="grid-cols-2 w-full">
             <MainCard title="快速开始">
                 <template #content>
@@ -168,7 +165,7 @@ onMounted(() => {
         </MainCard>
         <MainCard title="作业趋势分析" style="margin-top: 0.5rem;">
             <template #noMarginContent>
-                <div id="chartWorkTrend" style="height: 49vh; width: 100%;"></div>
+                <div id="chartWorkTrend" style="height: 500px; width: 100%;"></div>
             </template>
         </MainCard>
     </div>
