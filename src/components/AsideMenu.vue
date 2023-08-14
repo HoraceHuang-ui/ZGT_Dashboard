@@ -1,110 +1,45 @@
 <template>
-    <n-menu
-      :options="menuOptions"
-      :default-expanded-keys="defaultExpandedKeys"
-      @update:expanded-keys="handleUpdateExpandedKeys"
-    />
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent, h, Component } from 'vue'
-  import { NIcon, useMessage } from 'naive-ui'
-  import type { MenuOption } from 'naive-ui'
-  import {
-    BookOutline as BookIcon,
-    PersonOutline as PersonIcon,
-    WineOutline as WineIcon
-  } from '@vicons/ionicons5'
-  
-  function renderIcon (icon: Component) {
-    return () => h(NIcon, null, { default: () => h(icon) })
-  }
-  
-  const menuOptions: MenuOption[] = [
+  <n-switch v-model:value="collapsed"/>
+  <n-menu :options="options" :collapsed="collapsed"/>
+</template>
+
+<script setup>
+import {Accessible} from "@vicons/tabler"
+import {h, ref} from "vue";
+import {NIcon} from "naive-ui";
+
+const collapsed = ref(false)
+
+const options = [{
+  label: '射手',
+  key: 'adc',
+  icon: () => h(NIcon, null, {default: () => h(Accessible)}),
+  children: [
     {
-      label: '且听风吟',
-      key: 'hear-the-wind-sing',
-      icon: renderIcon(BookIcon)
-    },
-    {
-      label: '1973年的弹珠玩具',
-      key: 'pinball-1973',
-      icon: renderIcon(BookIcon),
-      disabled: true,
-      children: [
-        {
-          label: '鼠',
-          key: 'rat'
-        }
-      ]
-    },
-    {
-      label: '寻羊冒险记',
-      key: 'a-wild-sheep-chase',
-      icon: renderIcon(BookIcon),
-      disabled: true
-    },
-    {
-      label: '舞，舞，舞',
-      key: 'dance-dance-dance',
-      icon: renderIcon(BookIcon),
-      children: [
-        {
-          type: 'group',
-          label: '人物',
-          key: 'people',
-          children: [
-            {
-              label: '叙事者',
-              key: 'narrator',
-              icon: renderIcon(PersonIcon)
-            },
-            {
-              label: '羊男',
-              key: 'sheep-man',
-              icon: renderIcon(PersonIcon)
-            }
-          ]
-        },
-        {
-          label: '饮品',
-          key: 'beverage',
-          icon: renderIcon(WineIcon),
-          children: [
-            {
-              label: '威士忌',
-              key: 'whisky'
-            }
-          ]
-        },
-        {
-          label: '食物',
-          key: 'food',
-          children: [
-            {
-              label: '三明治',
-              key: 'sandwich'
-            }
-          ]
-        },
-        {
-          label: '过去增多，未来减少',
-          key: 'the-past-increases-the-future-recedes'
-        }
-      ]
+      label: "ez",
+      key: "ez",
+      icon: () => h(NIcon, null, {default: () => h(Accessible)}),
+    }, {
+      label: "mf",
+      key: "mf",
+      icon: () => h(NIcon, null, {default: () => h(Accessible)}),
     }
   ]
-  
-  export default defineComponent({
-    setup () {
-      const message = useMessage()
-      return {
-        menuOptions,
-        defaultExpandedKeys: ['dance-dance-dance', 'food'],
-        handleUpdateExpandedKeys (keys: string[]) {
-          message.info('[onUpdate:expandedKeys]: ' + JSON.stringify(keys))
-        }
-      }
+}, {
+  label: '射手1',
+  key: 'adc1',
+  icon: () => h(NIcon, null, {default: () => h(Accessible)}),
+  children: [
+    {
+      label: "ez1",
+      key: "ez1",
+      icon: () => h(NIcon, null, {default: () => h(Accessible)}),
+    }, {
+      label: "mf1",
+      key: "mf1",
+      icon: () => h(NIcon, null, {default: () => h(Accessible)}),
     }
-  })
-  </script>
+  ]
+}]
+
+</script>

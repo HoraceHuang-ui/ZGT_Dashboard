@@ -9,7 +9,7 @@ import AsideMenu from './components/AsideMenu.vue';
   <n-layout has-sider>
     <n-layout-sider bordered width="15vw" collapse-mode="width" :collapsed-width="64" show-trigger>
       <n-menu>
-          <AsideMenu />
+          <AsideMenu/>
       </n-menu>
     </n-layout-sider>
     <n-layout-content>
